@@ -3,9 +3,10 @@ import { authRouter, messageRouter, userRouter } from "./Modules/index.js";
 import successResponce from "./utils/response/sucess.response.js";
 import { BadRequestException} from "./utils/response/error.responce.js";
 import connectDB from "./DB/connection.js"
+import cors from "cors"
 
 const bootstarp = async (app, express) =>{
-    app.use(express.json())
+    app.use(express.json() , cors())
 
     await connectDB();
 
