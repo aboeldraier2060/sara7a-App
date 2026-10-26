@@ -45,6 +45,9 @@ const userSchema = new Schema ({
         default : ProviderEnum.SYSTEM,
     },
     confirmEmsil:Date ,
+    confirmEmailOTP : String,
+    forgetPasswordOTP: String,
+    changeCredentialTime:Date,
     profilePic:String,
     converPic : [String]
 }, {

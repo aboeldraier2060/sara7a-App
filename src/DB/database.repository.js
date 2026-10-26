@@ -31,6 +31,13 @@ if (options?.skip) doc.limit(options.skip);
 return await doc.exec();
 }
 
+export const findOneAndUpdate = async ({model, filter = {}, data = {}, select = "", options = {}}) =>{
+const doc = model.findOneAndUpdate(filter, data, { new: true, ...options });
+if(select?.length) doc.select(select);
+if (options?.populate) doc.populate(options.populate);
+if(options?.lean) doc.lean();
+return await doc.exec();
+}
 
 export const creat3  = async ({model, filter= { } , select= "", options = {},}) =>{
 const doc = model.find(filter).select(select);
